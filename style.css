@@ -178,19 +178,15 @@ body {
     cursor: default;
     color: var(--text-color);
 
-    /* This points to your uploaded file */
-    background-image: url('./images/bliss.jpg');
+    /* The '!important' tag forces this image to show over the theme */
+    background-image: url('./images/bliss.jpg') !important;
 
-    /* This ensures it covers the whole screen */
-    background-size: cover;
-
-    /* This keeps the image centered even if you resize the window */
-    background-position: center;
-
-    /* This stops the image from repeating */
-    background-repeat: no-repeat;
+    /* These ensure it scales correctly on your Chromebook screen */
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
   
-    /* Classic teal fall-back color just in case */
+    /* This remains as a fallback */
     background-color: #008080;
 }
 
