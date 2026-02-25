@@ -425,40 +425,45 @@ function resetTheme() {
 const menu = document.getElementById('context-menu');
 const desktopIcons = document.querySelector('.desktop-icons');
 
-// 1. Intercept Right-Click
-window.addEventListener('contextmenu', function (e) {
-    e.preventDefault(); // Stops the default browser menu
-    
-    menu.style.display = 'block';
-    menu.style.left = e.pageX + 'px';
-    menu.style.top = e.pageY + 'px';
-}, false);
+document.addEventListener('DOMContentLoaded', () => {
+    const menu = document.getElementById('context-menu');
+    // Targets the desktop area specifically
+    const desktop = document.querySelector('.desktop') || document.body;
 
-// 2. Hide Menu when clicking elsewhere
-window.addEventListener('click', function () {
-    menu.style.display = 'none';
+    // 1. Right-Click Event
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault(); // Blocks the Chromebook system menu
+        
+        menu.style.display = 'block';
+        menu.style.left = `${e.pageX}px`;
+        menu.style.top = `${e.pageY}px`;
+    });
+
+    // 2. Hide Menu on Left Click
+    document.addEventListener('click', (e) => {
+        if (e.target.offsetParent !== menu) {
+            menu.style.display = 'none';
+        }
+    });
 });
 
-// 3. Create New File Function
+// 3. Create File Function
 function createNewFile() {
-    // Create a new list item (the icon)
-    const newFile = document.createElement('li');
-    newFile.className = 'desktop-item';
+    const desktopIcons = document.querySelector('.desktop-icons') || document.querySelector('.desktop');
     
-    // You can change 'icons/notepad.png' to whatever icon path you have
-    newFile.innerHTML = `
-        <img src="https://win98icons.alexmeub.com/icons/png/notepad-0.png" alt="File" style="width: 32px; height: 32px;">
-        <span>New Text.txt</span>
-    `;
-
-    // Add it to the desktop
     if (desktopIcons) {
+        const newFile = document.createElement('li'); // Most templates use <li> for icons
+        newFile.className = 'desktop-item';
+        
+        // Using a classic Win98 Notepad icon URL
+        newFile.innerHTML = `
+            <img src="https://win98icons.alexmeub.com/icons/png/notepad-0.png" width="32" height="32">
+            <span>New Text.txt</span>
+        `;
+        
         desktopIcons.appendChild(newFile);
-    } else {
-        // Fallback if the template uses a different class name
-        document.body.appendChild(newFile);
     }
     
-    // Close the menu
-    menu.style.display = 'none';
+    // Hide menu after clicking
+    document.getElementById('context-menu').style.display = 'none';
 }
