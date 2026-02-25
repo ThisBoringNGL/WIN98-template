@@ -847,10 +847,12 @@ button:active, input[type="button"]:active, input[type="submit"]:active {
     }
 
     /* Improve scrolling on mobile */
+    
     .window-content {
-        -webkit-overflow-scrolling: touch;
-        overflow-scrolling: touch;
-    }
+    /* This is the modern way to handle smooth scrolling behavior */
+    scroll-behavior: smooth;
+    overflow-y: auto;
+}
 }
 
 /* Small mobile styles (up to 480px) */
