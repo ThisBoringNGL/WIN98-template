@@ -449,21 +449,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 3. Create File Function
 function createNewFile() {
-    const desktopIcons = document.querySelector('.desktop-icons') || document.querySelector('.desktop');
+    const container = document.querySelector('.desktop-icons') || document.querySelector('.desktop');
+    const newFile = document.createElement('li');
+    newFile.className = 'desktop-item';
     
-    if (desktopIcons) {
-        const newFile = document.createElement('li'); // Most templates use <li> for icons
-        newFile.className = 'desktop-item';
-        
-        // Using a classic Win98 Notepad icon URL
-        newFile.innerHTML = `
-            <img src="https://win98icons.alexmeub.com/icons/png/notepad-0.png" width="32" height="32">
-            <span>New Text.txt</span>
-        `;
-        
-        desktopIcons.appendChild(newFile);
-    }
-    
-    // Hide menu after clicking
+    // This uses a pixel-perfect Win98 notepad icon
+    newFile.innerHTML = `
+        <div class="icon-wrapper" ondblclick="openNotepad()">
+            <img src="https://win98icons.alexmeub.com/icons/png/notepad-0.png" width="32" height="32" style="display:block; margin:auto;">
+            <span style="color:white; text-shadow:1px 1px #000; font-size:11px; display:block; text-align:center; margin-top:4px;">New Text.txt</span>
+        </div>
+    `;
+
+    container.appendChild(newFile);
     document.getElementById('context-menu').style.display = 'none';
+}
+
+function openNotepad() {
+    const win = document.getElementById('notepad-window');
+    win.style.display = 'block';
+    // Optional: bring it to front
+    win.style.zIndex = "1000";
 }
