@@ -451,25 +451,21 @@ document.addEventListener('DOMContentLoaded', () => {
 function createNewFile() {
     const container = document.querySelector('.desktop-icons') || document.querySelector('.desktop');
     const newFile = document.createElement('li');
+    
+    // We use the template's standard class names
     newFile.className = 'desktop-item';
     
-    // This is the Notepad icon encoded as text (Base64)
-    const notepadIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5AwIDBQi796S3wAAAVlpREFUWMPtV0uSgzAMvP8haS7A7AByAWYH6A6YHTA7YHZA7oDcAbkDcgfM7oAtF0ByAcl7S6pS8idpZpRhSNo6lmX9S7IkaYmIByL6Y865E9E9v2P9L9Z/Yv0n1v9fAt7S6XREvN9v6na7pFar9ToYDAIA8Hq9KJPJiLbbbaYsy8But/v6nE6nKJPJiObr9XpX6LIs+677C9HtdvXv9/u/6mKxSIn7/V7X6/VpYLPZpMTz+UzpY7FY6N/v92nguDmdTi9Vl8vlcT6fXwaO2/V6fXv6brerf7/fS8BfA9Pp9PL09Xr98fT7/V4CfhvI83x5OofD4ePpDofDS8BfA7PZ7O3pY7HYfjzdZDJ5CfhvYDKZvD39XW6328fT3e/3S8BfAx8F6Ha7f5XlcplS9Xp9GfBvYLPZ/At9LpfL6Xa7XQX8N7Ber/+FrlarV7rf79/W/836X6z/xPqb5As0m6mU088WvAAAAABJRU5ErkJggg==";
-
+    // This uses FontAwesome (fa-file-alt is the notepad icon)
     newFile.innerHTML = `
         <div class="icon-container" ondblclick="openNotepad()">
-            <img src="${notepadIcon}" width="32" height="32" style="display:block; margin:auto;">
-            <span style="color:white; text-shadow:1px 1px black; font-size:11px; display:block; text-align:center; margin-top:4px;">New Note.txt</span>
+            <i class="fas fa-file-alt" style="font-size: 32px; color: #fff; display: block; margin: 0 auto 5px auto;"></i>
+            <span class="icon-label">New Note.txt</span>
         </div>
     `;
 
     container.appendChild(newFile);
-    document.getElementById('context-menu').style.display = 'none';
-}
-
-function openNotepad() {
-    const win = document.getElementById('notepad-window');
-    win.style.display = 'block';
-    // Optional: bring it to front
-    win.style.zIndex = "1000";
+    
+    // Hide the menu
+    const menu = document.getElementById('context-menu');
+    if (menu) menu.style.display = 'none';
 }
