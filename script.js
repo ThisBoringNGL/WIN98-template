@@ -452,12 +452,11 @@ function createNewFile() {
     const container = document.querySelector('.desktop-icons');
     const newFile = document.createElement('div');
     
-    // Match your template's class name
     newFile.className = 'icon'; 
     
-    // Set up the actions
-    newFile.setAttribute('onclick', "selectIcon(this)");
-    newFile.setAttribute('ondblclick', "openWindow('notepad-window')");
+    // We use onclick to match exactly how your 'About Me' and 'Calculator' work
+    // This tells the template: "Open the window with ID 'notepad-window'"
+    newFile.setAttribute('onclick', "selectIcon(this); openWindow('notepad-window')");
 
     newFile.innerHTML = `
         <div class="icon-image">
@@ -468,8 +467,9 @@ function createNewFile() {
 
     container.appendChild(newFile);
     
-    // Hide the right-click menu
-    document.getElementById('context-menu').style.display = 'none';
+    // Close the right-click menu
+    const menu = document.getElementById('context-menu');
+    if (menu) menu.style.display = 'none';
 }
 
 function selectIcon(element) {
