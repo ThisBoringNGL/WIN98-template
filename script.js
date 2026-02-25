@@ -452,20 +452,33 @@ function createNewFile() {
     const container = document.querySelector('.desktop-icons') || document.querySelector('.desktop');
     const newFile = document.createElement('li');
     
-    // We use the template's standard class names
     newFile.className = 'desktop-item';
     
-    // This uses FontAwesome (fa-file-alt is the notepad icon)
+    // We put the double-click on the whole <li> for maximum reliability
+    newFile.setAttribute('ondblclick', "openNotepad()");
+
     newFile.innerHTML = `
-        <div class="icon-container" ondblclick="openNotepad()">
+        <div class="icon-container" style="pointer-events: none;">
             <i class="fas fa-file-alt" style="font-size: 32px; color: #fff; display: block; margin: 0 auto 5px auto;"></i>
-            <span class="icon-label">New Note.txt</span>
+            <span class="icon-label" style="color:white; text-shadow:1px 1px black;">New Note.txt</span>
         </div>
     `;
 
     container.appendChild(newFile);
     
-    // Hide the menu
+    // Hide right-click menu
     const menu = document.getElementById('context-menu');
     if (menu) menu.style.display = 'none';
+}
+
+function openNotepad() {
+    // Make sure this ID matches exactly what is in your HTML!
+    const win = document.getElementById('notepad-window'); 
+    if (win) {
+        win.style.display = 'block';
+        win.style.zIndex = "1000";
+        console.log("Notepad opened!"); // This helps you check the console (F12) if it fails
+    } else {
+        console.error("Could not find notepad-window ID");
+    }
 }
