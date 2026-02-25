@@ -1083,3 +1083,21 @@ html, body, #desktop, .desktop, .desktop-wrapper {
     text-shadow: 1px 1px black;
     font-size: 11px;
 }
+
+/* The blue selection box for desktop icons */
+.icon.selected {
+    background-color: rgba(0, 0, 128, 0.6) !important;
+    outline: 1px dotted #fff;
+}
+
+/* Change the text background when selected */
+.icon.selected .icon-text {
+    background-color: #000080;
+    color: white !important;
+}
+
+/* Ensure FontAwesome notepad icons are visible */
+.fa-file-alt {
+    color: #fff;
+    font-size: 32px;
+}

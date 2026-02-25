@@ -449,23 +449,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 3. Create File Function
 function createNewFile() {
-    const container = document.querySelector('.desktop-icons') || document.querySelector('.desktop');
-    const newFile = document.createElement('li');
-    newFile.className = 'desktop-item';
-
-    // We use the template's built-in openWindow function
-    // Change 'notepad-window' to 'notepad' if that is what your ID is!
+    const container = document.querySelector('.desktop-icons');
+    const newFile = document.createElement('div');
+    
+    // Match your template's class name
+    newFile.className = 'icon'; 
+    
+    // Set up the actions
+    newFile.setAttribute('onclick', "selectIcon(this)");
     newFile.setAttribute('ondblclick', "openWindow('notepad-window')");
 
     newFile.innerHTML = `
-        <div class="icon-container" style="pointer-events: none;">
-            <i class="fas fa-file-alt" style="font-size: 32px; color: #fff; display: block; margin: 0 auto 5px auto;"></i>
-            <span class="icon-label">New Note.txt</span>
+        <div class="icon-image">
+            <i class="fas fa-file-alt"></i>
         </div>
+        <span class="icon-text">New Note.txt</span>
     `;
 
     container.appendChild(newFile);
+    
+    // Hide the right-click menu
     document.getElementById('context-menu').style.display = 'none';
+}
+
+function selectIcon(element) {
+    // Remove highlight from all icons (yours and the template's)
+    document.querySelectorAll('.icon').forEach(icon => {
+        icon.classList.remove('selected');
+    });
+    // Add highlight to the one you clicked
+    element.classList.add('selected');
 }
 
 function openNotepad() {
