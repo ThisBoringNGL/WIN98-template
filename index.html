@@ -205,24 +205,21 @@
         </div>
 
         <!-- new notepad window-->
-        <div id="notepad-window" class="window" style="display:none; width: 600px; position: absolute; top: 50px; left: 50px; z-index: 999;">
+       <div class="window" id="notepad" style="top: 140px; left: 250px; width: 400px; height: 300px; display:none;">
             <div class="window-header">
-                <span class="window-title">Offline OS Notepad</span>
+                <span class="window-title">Untitled - Notepad</span>
                 <div class="window-controls">
-                    <a href="#" class="window-button minimize-btn" onclick="minimizeWindow('notepad-window')">_</a>
-                    <a href="#" class="window-button maximize-btn" onclick="maximizeWindow('notepad-window')">□</a>
-                    <a href="#" class="window-button close-btn" onclick="document.getElementById('notepad-window').style.display='none'">×</a>
+                    <a href="#" class="window-button minimize-btn" onclick="minimizeWindow('notepad')">_</a>
+                    <a href="#" class="window-button maximize-btn" onclick="maximizeWindow('notepad')">□</a>
+                    <a href="#" class="window-button close-btn" onclick="closeWindow('notepad')">×</a>
                 </div>
             </div>
-            <div class="window-body" style="background: white; padding: 0;">
-                <div id="wrapper" data-theme="win95">
-                    <div style="padding: 5px; background: #c0c0c0; border-bottom: 1px solid #808080; display: flex; gap: 10px;">
-                        <input id="filenameInput" type="text" placeholder="Filename..." style="width: 120px; font-size: 11px;">
-                        <button onclick="downloadNote()" style="font-size: 11px; padding: 2px 10px;">Download</button>
-                    </div>
-
-                    <textarea id="editor" style="width:100%; height:350px; border:none; outline:none; font-family: 'Courier New', monospace; padding: 10px; box-sizing: border-box;"></textarea>
+            <div class="window-content" style="padding: 0; display: flex; flex-direction: column;">
+                <div style="background: #c0c0c0; padding: 4px; border-bottom: 1px solid #808080; display: flex; gap: 5px;">
+                    <input id="filenameInput" type="text" placeholder="file.txt" style="width: 100px; font-size: 11px;">
+                    <button onclick="downloadNote()" style="font-size: 11px;">Download</button>
                 </div>
+                <textarea id="notepad-text" style="flex-grow: 1; width: 100%; border: none; resize: none; font-family: 'Courier New', monospace; font-size: 12px; padding: 8px; outline: none;" placeholder="Type here..."></textarea>
             </div>
         </div>
 
