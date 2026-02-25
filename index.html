@@ -205,21 +205,23 @@
         </div>
 
         <!-- new notepad window-->
-       <div class="window" id="notepad" style="top: 140px; left: 250px; width: 400px; height: 300px; display:none;">
+        <div class="window" id="notepad-window" style="top: 140px; left: 250px; width: 400px; height: 300px; display: none;">
             <div class="window-header">
                 <span class="window-title">Untitled - Notepad</span>
                 <div class="window-controls">
                     <a href="#" class="window-button minimize-btn" onclick="minimizeWindow('notepad')">_</a>
                     <a href="#" class="window-button maximize-btn" onclick="maximizeWindow('notepad')">□</a>
                     <a href="#" class="window-button close-btn" onclick="closeWindow('notepad')">×</a>
-                </div>
+               </div>
             </div>
-            <div class="window-content" style="padding: 0; display: flex; flex-direction: column;">
-                <div style="background: #c0c0c0; padding: 4px; border-bottom: 1px solid #808080; display: flex; gap: 5px;">
-                    <input id="filenameInput" type="text" placeholder="file.txt" style="width: 100px; font-size: 11px;">
-                    <button onclick="downloadNote()" style="font-size: 11px;">Download</button>
+            <div class="window-content" style="padding: 0; display: flex; flex-direction: column; height: calc(100% - 25px);">
+
+                <div class="notepad-toolbar" style="background: #c0c0c0; padding: 3px; border-bottom: 1px solid #808080; display: flex; gap: 5px; align-items: center;">
+                <input id="filenameInput" type="text" placeholder="filename.txt" style="font-size: 10px; width: 80px; height: 18px;">
+                    <button onclick="downloadNote()" style="font-size: 10px; padding: 1px 5px; cursor: pointer;">Save to Disk</button>
                 </div>
-                <textarea id="notepad-text" style="flex-grow: 1; width: 100%; border: none; resize: none; font-family: 'Courier New', monospace; font-size: 12px; padding: 8px; outline: none;" placeholder="Type here..."></textarea>
+
+                <textarea id="notepad-text" style="flex-grow: 1; width: 100%; border: none; resize: none; font-family: 'Courier New', monospace; font-size: 11px; padding: 4px; outline: none;" placeholder="Type your notes here...">Welcome to Notepad!</textarea>
             </div>
         </div>
 
