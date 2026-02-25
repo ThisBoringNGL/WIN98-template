@@ -451,24 +451,21 @@ document.addEventListener('DOMContentLoaded', () => {
 function createNewFile() {
     const container = document.querySelector('.desktop-icons') || document.querySelector('.desktop');
     const newFile = document.createElement('li');
-    
     newFile.className = 'desktop-item';
-    
-    // We put the double-click on the whole <li> for maximum reliability
-    newFile.setAttribute('ondblclick', "openNotepad()");
+
+    // We use the template's built-in openWindow function
+    // Change 'notepad-window' to 'notepad' if that is what your ID is!
+    newFile.setAttribute('ondblclick', "openWindow('notepad-window')");
 
     newFile.innerHTML = `
         <div class="icon-container" style="pointer-events: none;">
             <i class="fas fa-file-alt" style="font-size: 32px; color: #fff; display: block; margin: 0 auto 5px auto;"></i>
-            <span class="icon-label" style="color:white; text-shadow:1px 1px black;">New Note.txt</span>
+            <span class="icon-label">New Note.txt</span>
         </div>
     `;
 
     container.appendChild(newFile);
-    
-    // Hide right-click menu
-    const menu = document.getElementById('context-menu');
-    if (menu) menu.style.display = 'none';
+    document.getElementById('context-menu').style.display = 'none';
 }
 
 function openNotepad() {
