@@ -1011,3 +1011,17 @@ button:active, input[type="button"]:active, input[type="submit"]:active {
     );
     pointer-events: none;
 }
+
+
+/* This targets every possible layer and forces transparency */
+html, body, #desktop, .desktop, .desktop-wrapper {
+    background-image: url('./images/bliss.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}
+
+/* This kills any solid colors that might be hiding the image */
+#desktop, .desktop {
+    background-color: transparent !important;
+}
