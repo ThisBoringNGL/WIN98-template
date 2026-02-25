@@ -451,11 +451,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function createNewFile() {
     const container = document.querySelector('.desktop-icons');
     const newFile = document.createElement('div');
-    
     newFile.className = 'icon'; 
-    
-    // We use onclick to match exactly how your 'About Me' and 'Calculator' work
-    // This tells the template: "Open the window with ID 'notepad-window'"
+
+    // This specifically targets your custom ID: notepad-window
     newFile.setAttribute('onclick', "selectIcon(this); openWindow('notepad-window')");
 
     newFile.innerHTML = `
@@ -466,10 +464,7 @@ function createNewFile() {
     `;
 
     container.appendChild(newFile);
-    
-    // Close the right-click menu
-    const menu = document.getElementById('context-menu');
-    if (menu) menu.style.display = 'none';
+    document.getElementById('context-menu').style.display = 'none';
 }
 
 function selectIcon(element) {
