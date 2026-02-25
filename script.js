@@ -448,13 +448,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 3. Create File Function
+// Function to handle the download
+function downloadNote() {
+    const editor = document.getElementById('notepad-text'); // Matches the original ID
+    const filenameInput = document.getElementById('filenameInput');
+    
+    const text = editor.value;
+    const name = filenameInput.value || "note.txt";
+    
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.download = name.endsWith('.txt') ? name : name + '.txt';
+    link.href = window.URL.createObjectURL(blob);
+    link.click();
+}
+
+// Function to create the file icon on the desktop
 function createNewFile() {
     const container = document.querySelector('.desktop-icons');
     const newFile = document.createElement('div');
     newFile.className = 'icon'; 
 
-    // This specifically targets your custom ID: notepad-window
-    newFile.setAttribute('onclick', "selectIcon(this); openWindow('notepad-window')");
+    // Using the original 'notepad' ID that the template likes
+    newFile.setAttribute('onclick', "selectIcon(this); openWindow('notepad')");
 
     newFile.innerHTML = `
         <div class="icon-image">
