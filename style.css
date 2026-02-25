@@ -177,6 +177,21 @@ body {
     height: 100vh;
     cursor: default;
     color: var(--text-color);
+
+    /* This points to your uploaded file */
+    background-image: url('./images/bliss.jpg');
+
+    /* This ensures it covers the whole screen */
+    background-size: cover;
+
+    /* This keeps the image centered even if you resize the window */
+    background-position: center;
+
+    /* This stops the image from repeating */
+    background-repeat: no-repeat;
+  
+    /* Classic teal fall-back color just in case */
+    background-color: #008080;
 }
 
 /* ===== DESKTOP BACKGROUND ===== */
