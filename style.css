@@ -1025,3 +1025,44 @@ html, body, #desktop, .desktop, .desktop-wrapper {
 #desktop, .desktop {
     background-color: transparent !important;
 }
+
+#context-menu {
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+}
+
+/* --- Context Menu Styles --- */
+#context-menu {
+    position: absolute;
+    display: none; /* Hidden by default */
+    z-index: 9999;
+    width: 160px;
+    background-color: #c0c0c0;
+    border: 2px solid;
+    /* This creates the classic 3D light/shadow border effect */
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu-item {
+    padding: 4px 8px;
+    cursor: default;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    color: black;
+}
+
+.menu-item:hover {
+    background-color: #000080; /* Classic Dark Blue */
+    color: white;
+}
+
+/* Optional separator line */
+.menu-separator {
+    height: 1px;
+    background-color: #808080;
+    border-bottom: 1px solid #ffffff;
+    margin: 4px 2px;
+}

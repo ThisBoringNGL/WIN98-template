@@ -418,3 +418,47 @@ function resetTheme() {
     
     document.getElementById('default-theme').checked = true;
 }
+
+
+/* --- Windows Desktop Logic --- */
+
+const menu = document.getElementById('context-menu');
+const desktopIcons = document.querySelector('.desktop-icons');
+
+// 1. Intercept Right-Click
+window.addEventListener('contextmenu', function (e) {
+    e.preventDefault(); // Stops the default browser menu
+    
+    menu.style.display = 'block';
+    menu.style.left = e.pageX + 'px';
+    menu.style.top = e.pageY + 'px';
+}, false);
+
+// 2. Hide Menu when clicking elsewhere
+window.addEventListener('click', function () {
+    menu.style.display = 'none';
+});
+
+// 3. Create New File Function
+function createNewFile() {
+    // Create a new list item (the icon)
+    const newFile = document.createElement('li');
+    newFile.className = 'desktop-item';
+    
+    // You can change 'icons/notepad.png' to whatever icon path you have
+    newFile.innerHTML = `
+        <img src="icons/notepad.png" alt="File">
+        <span>New Text.txt</span>
+    `;
+
+    // Add it to the desktop
+    if (desktopIcons) {
+        desktopIcons.appendChild(newFile);
+    } else {
+        // Fallback if the template uses a different class name
+        document.body.appendChild(newFile);
+    }
+    
+    // Close the menu
+    menu.style.display = 'none';
+}
