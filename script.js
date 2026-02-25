@@ -453,11 +453,13 @@ function createNewFile() {
     const newFile = document.createElement('li');
     newFile.className = 'desktop-item';
     
-    // This uses a pixel-perfect Win98 notepad icon
+    // This is the Notepad icon encoded as text (Base64)
+    const notepadIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5AwIDBQi796S3wAAAVlpREFUWMPtV0uSgzAMvP8haS7A7AByAWYH6A6YHTA7YHZA7oDcAbkDcgfM7oAtF0ByAcl7S6pS8idpZpRhSNo6lmX9S7IkaYmIByL6Y865E9E9v2P9L9Z/Yv0n1v9fAt7S6XREvN9v6na7pFar9ToYDAIA8Hq9KJPJiLbbbaYsy8But/v6nE6nKJPJiObr9XpX6LIs+677C9HtdvXv9/u/6mKxSIn7/V7X6/VpYLPZpMTz+UzpY7FY6N/v92nguDmdTi9Vl8vlcT6fXwaO2/V6fXv6brerf7/fS8BfA9Pp9PL09Xr98fT7/V4CfhvI83x5OofD4ePpDofDS8BfA7PZ7O3pY7HYfjzdZDJ5CfhvYDKZvD39XW6328fT3e/3S8BfAx8F6Ha7f5XlcplS9Xp9GfBvYLPZ/At9LpfL6Xa7XQX8N7Ber/+FrlarV7rf79/W/836X6z/xPqb5As0m6mU088WvAAAAABJRU5ErkJggg==";
+
     newFile.innerHTML = `
-        <div class="icon-wrapper" ondblclick="openNotepad()">
-            <img src="https://win98icons.alexmeub.com/icons/png/notepad-0.png" width="32" height="32" style="display:block; margin:auto;">
-            <span style="color:white; text-shadow:1px 1px #000; font-size:11px; display:block; text-align:center; margin-top:4px;">New Text.txt</span>
+        <div class="icon-container" ondblclick="openNotepad()">
+            <img src="${notepadIcon}" width="32" height="32" style="display:block; margin:auto;">
+            <span style="color:white; text-shadow:1px 1px black; font-size:11px; display:block; text-align:center; margin-top:4px;">New Note.txt</span>
         </div>
     `;
 
