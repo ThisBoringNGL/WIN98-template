@@ -447,7 +447,7 @@ function createNewFile() {
     
     // You can change 'icons/notepad.png' to whatever icon path you have
     newFile.innerHTML = `
-        <img src="icons/notepad.png" alt="File">
+        <img src="https://win98icons.alexmeub.com/icons/png/notepad-0.png" alt="File" style="width: 32px; height: 32px;">
         <span>New Text.txt</span>
     `;
 
