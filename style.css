@@ -1101,3 +1101,17 @@ html, body, #desktop, .desktop, .desktop-wrapper {
     color: #fff;
     font-size: 32px;
 }
+
+/* Force windows to show when the template triggers them */
+.window[style*="display: block"], 
+.window.active {
+    display: block !important;
+    visibility: visible !important;
+    z-index: 10000 !important; /* Higher than the desktop and taskbar */
+}
+
+/* Ensure the iframe has a size */
+#browser-frame {
+    min-height: 300px;
+    background: white;
+}
