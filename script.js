@@ -503,3 +503,15 @@ function openNotepad() {
         console.error("Could not find notepad-window ID");
     }
 }
+
+function navigateBrowser() {
+    let url = document.getElementById('browser-address').value;
+    const frame = document.getElementById('browser-frame');
+    
+    // Add https:// if it's missing so the browser doesn't get confused
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+    }
+    
+    frame.src = url;
+}

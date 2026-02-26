@@ -59,6 +59,15 @@
                 </div>
                 <span class="icon-text">Notepad</span>
             </div>
+            
+            <!-- Icon 5: Browser -->
+            <div class="icon" onclick="selectIcon(this); openWindow('browser')">
+                <div class="icon-image">
+                    <i class="fas fa-globe" style="color: #000080;"></i>
+                </div>
+                <span class="icon-text">Internet</span>
+            </div>
+
 
         </div>
 
@@ -233,6 +242,26 @@ This is a fully functional text editor window. You can:
 Try typing something!</textarea>
             </div>
         </div>
+
+        <div class="window" id="browser-window" style="top: 100px; left: 100px; width: 650px; height: 450px; display: none;">
+            <div class="window-header">
+                <span class="window-title">Internet Explorer</span>
+                <div class="window-controls">
+                    <a href="#" class="window-button minimize-btn" onclick="minimizeWindow('browser')">_</a>
+                    <a href="#" class="window-button maximize-btn" onclick="maximizeWindow('browser')">□</a>
+                    <a href="#" class="window-button close-btn" onclick="closeWindow('browser')">×</a>
+                </div>
+            </div>
+            <div class="window-content" style="padding: 0; display: flex; flex-direction: column; height: calc(100% - 25px); background: white;">
+                <div style="background: #c0c0c0; padding: 4px; border-bottom: 2px solid #ffffff; display: flex; gap: 5px; align-items: center;">
+                    <span style="font-size: 11px; margin-left: 5px;">Address:</span>
+                    <input id="browser-address" type="text" value="https://www.bing.com" style="flex-grow: 1; font-size: 12px; height: 20px;">
+                    <button onclick="navigateBrowser()" style="height: 22px; font-size: 11px; padding: 0 10px;">Go</button>
+                </div>
+                <iframe id="browser-frame" src="https://www.bing.com" style="width: 100%; flex-grow: 1; border: none; background: white;"></iframe>
+            </div>
+        </div>
+
 
     </div>
 
