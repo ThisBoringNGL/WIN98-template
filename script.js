@@ -147,6 +147,7 @@ function getWindowTitle(windowId) {
         'calculator': 'Calculator',
         'themes': 'Display Properties',
         'notepad': 'Notepad'
+        'browser': 'Internet Explorer'
     };
     return titles[windowId] || windowId;
 }
