@@ -146,7 +146,7 @@ function getWindowTitle(windowId) {
         'projects': 'My Projects',
         'calculator': 'Calculator',
         'themes': 'Display Properties',
-        'notepad': 'Notepad'
+        'notepad': 'Notepad',
         'browser': 'Internet Explorer'
     };
     return titles[windowId] || windowId;
