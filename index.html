@@ -59,6 +59,15 @@
                 </div>
                 <span class="icon-text">Notepad</span>
             </div>
+
+            <!-- Icon 6: Webbrowser -->
+            <div class="icon" onclick="openWindow('browser')">
+                <div class="icon-image">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <span class="icon-text">Browser</span>
+            </div>
+
         </div>
 
         <!-- WINDOWS -->
@@ -230,6 +239,28 @@ This is a fully functional text editor window. You can:
 - Customize the content however you like
 
 Try typing something!</textarea>
+            </div>
+        </div>
+
+        <!-- My App Window -->
+        <div class="window" id="browser" style="top: 120px; left: 280px; width: 400px; height: 300px;">
+            <div class="window-header">
+                <span class="window-title">browser test</span>
+                <div class="window-controls">
+                    <a href="#" class="window-button minimize-btn" onclick="minimizeWindow('myapp')">_</a>
+                    <a href="#" class="window-button maximize-btn" onclick="maximizeWindow('myapp')">□</a>
+                    <a href="#" class="window-button close-btn" onclick="closeWindow('myapp')">×</a>
+                </div>
+            </div>
+            <div class="window-content">
+                <h3>Welcome to My Test for a Browser App</h3>
+                <p>Put whatever content you want here!</p>
+                <ul>
+                    <li>Lists work great</li>
+                    <li>You can add links: <a href="https://google.com">Google</a></li>
+                    <li>Or images: <img src="your-image.jpg" style="max-width: 100%;"></li>
+                </ul>
+               <button onclick="alert('Button clicked!')">Try This Button</button>
             </div>
         </div>
 
